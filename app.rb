@@ -25,7 +25,7 @@ get "/sms/incoming" do
     message = "What's up?"
 
   elsif session["counter"]>=1
-    if body == body.starts_with?("what are you d") || body.include?("wryd")
+    if body.include?("wryd")
         message = "I'm at the gym lol. Why?"
         sleep 2
         message = "Actually nvm. Idc lol"
@@ -35,15 +35,15 @@ get "/sms/incoming" do
          to: params[:From],
          body: "I'm at the gym lol. Why?"
       )
-    elsif body == "what are you doing?" || body.include?("are you doing") || body.include?("ryd")
+    elsif body.include?("are you doing") || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
         sleep (2)
         message = "Actually nvm. Idc."
-    elsif body == "Have you done the hw?" || body.include?("hw") || body.include?("homework")
+    elsif body.include?("hw") || body.include?("homework")
       message = "Yeah a while ago."
-    elsif body == "Can you help me?" || body.include?("help me")
+    elsif body.include?("help me")
       message = "No"
-    elsif body == "What is the weather like?" || body.include?("weather")
+    elsif body.include?("weather")
       message = "Dude look yourself. You have an app"
     elsif body == "Can you remind me to do that thing?" || body.include?("remind")
       message = "Why do you need me to do that? Just set a reminder on your phone"
