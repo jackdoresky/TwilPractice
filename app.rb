@@ -59,6 +59,10 @@ get "/sms/incoming" do
     message = "JACK'S PHONE IS ON DO NOT DISTURB NOW. TEXT SOMEONE ELSE."
     media = nil
   end
+  if session["counter"]>=11
+    message = "https://media.giphy.com/media/26uf1obq3ifbbixVK/giphy.gif"
+    media = nil
+  end
   session["counter"] += 1
   twiml = Twilio::TwiML::MessagingResponse.new do |r|
     r.message do |m|
