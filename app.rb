@@ -41,8 +41,10 @@ get "/sms/incoming" do
         message = "Actually nvm. Idc."
     elsif body == "Have you done the hw yet?" || body == "Did you do the hw" || body.include?("hw") || body.include?("homework")
       message = "Yeah a while ago."
-    elsif body == "Can you help me" || body.include?("help me")
+    elsif body == body.include?("help me")
       message = "No"
+    elsif body == body.include?("weather?")
+      message = "Dude look yourself. You have apps for this"
     elsif body.include?("remind")
         message = "Why do you need me to do that? Just set a reminder on your phone"
     else
