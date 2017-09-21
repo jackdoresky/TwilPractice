@@ -35,11 +35,11 @@ get "/sms/incoming" do
          to: params[:From],
          body: "I'm at the gym lol. Why?"
       )
-    elsif body == "What are you doing" || body.include?("ryd")
+    elsif body == body.include?("are you doing") || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
         sleep (2)
         message = "Actually nvm. Idc."
-    elsif body == "Have you done the hw yet?" || body == "Did you do the hw" || body.include?("hw") || body.include?("homework")
+    elsif body == body.include?("hw") || body.include?("homework")
       message = "Yeah a while ago."
     elsif body == body.include?("help me")
       message = "No"
@@ -48,7 +48,7 @@ get "/sms/incoming" do
     elsif body.include?("remind")
         message = "Why do you need me to do that? Just set a reminder on your phone"
     else
-       message = "Aight, see ya."
+       message = "See ya."
     end
 
   end
