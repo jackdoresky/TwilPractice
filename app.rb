@@ -31,24 +31,24 @@ get "/sms/incoming" do
   if session["counter"] == 1
     message = "Thanks for your first message. From #{sender} saying #{body}"
     media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
-  else
-    if session["counter"]>1
-    
+  end
+  if session["counter"]>1
+
     if body == "What are you doing" || body == "wryd" || body == "Wryd"
     message = "I'm at the gym lol. Why?"
     sleep (2)
     message = "Actually nvm. Idc lol"
     end
-    if body == "Have you done the hw yet?"
+    if body == "Have you done the hw yet?" || "Did you do the hw"
     message = "Yeah a while ago."
       if == "Can you help me"
       message = "No"
-    else == "We're done here."
+    else == "Aight, bye."
     end
-    end
+  end
 
   else
-    message = "I am sleeping. Don't bother me rn."
+    message = "JACK'S PHONE IS ON DO NOT DISTURB. TEXT SOMEONE ELSE."
     media = nil
   end
 
