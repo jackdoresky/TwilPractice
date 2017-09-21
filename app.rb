@@ -28,13 +28,12 @@ get "/sms/incoming" do
     if body.include?("wryd")
         message = "I'm at the gym lol. Why?"
 
-
       @client.api.account.messages.create(
          from: ENV['TWILIO_FROM'],
          to: params[:From],
          body: "I'm at the gym lol. Why?"
       )
-    elsif body.include?("are you doing") || body.include?("ryd")
+    elsif body.include?("are you doing") || body.include?("wryd")
         message = "I'm at the gym lol. Why?"
 
     elsif body.include?("hw") || body.include?("homework")
