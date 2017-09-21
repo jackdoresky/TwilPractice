@@ -26,14 +26,15 @@ get "/sms/incoming" do
     media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
   elsif session["counter"]>1
     if body == "What are you doing" || body == "wryd" || body == "Wryd"
-
+        message - "I'm at the gym lol. Why?"
+        sleep (2)
+        message = "Actually nvm. Idc lol"
       @client.api.account.messages.create(
          from: ENV['TWILIO_FROM'],
          to: params[:From],
          body: "I'm at the gym lol. Why?"
       )
-      sleep (2)
-      message = "Actually nvm. Idc lol"
+
     elsif body == "Have you done the hw yet?" || body == "Did you do the hw" || body.include?("hw") || body.include?("homework")
       message = "Yeah a while ago."
     elsif body == "Can you help me" || body.include?("help me")
