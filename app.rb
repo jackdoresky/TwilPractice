@@ -25,7 +25,7 @@ get "/sms/incoming" do
     message = "What's up?"
 
   elsif session["counter"]>=1
-    if body == "What are you doing" || body.include?("wryd")
+    if body == body.starts_with?("what are you d") || body.include?("wryd")
         message = "I'm at the gym lol. Why?"
         sleep 2
         message = "Actually nvm. Idc lol"
@@ -35,7 +35,7 @@ get "/sms/incoming" do
          to: params[:From],
          body: "I'm at the gym lol. Why?"
       )
-    elsif body == "What are you doing?" || body.include?("are you doing") || body.include?("ryd")
+    elsif body == "what are you doing?" || body.include?("are you doing") || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
         sleep (2)
         message = "Actually nvm. Idc."
