@@ -45,7 +45,7 @@ get "/sms/incoming" do
       message = "No"
     else == "Aight, bye."
     end
-  end
+    end
 
   else
     message = "JACK'S PHONE IS ON DO NOT DISTURB. TEXT SOMEONE ELSE."
