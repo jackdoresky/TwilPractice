@@ -41,11 +41,13 @@ get "/sms/incoming" do
     elsif body == "Can you help me" || body.include?("help me")
       message = "No"
     elsif body.include?("remind")
-        message = "Why do you need me to do that? Just set a reminder on your phone."
+        message = "Why do you need me to do that? Just set a reminder on your phone"
     else
        message = "Aight, bye."
     end
-  elsif session["counter"]==4
+
+  end
+  if session["counter"]==4
     message = "JACK'S PHONE IS ON DO NOT DISTURB. TEXT SOMEONE ELSE."
     media = nil
   end
