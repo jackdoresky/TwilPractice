@@ -43,12 +43,12 @@ get "/sms/incoming" do
       message = "Yeah a while ago."
     elsif body == "Can you help me?" || body.include?("help me")
       message = "No"
-    elsif body == "What is the weather like?" || body.include?("weather?")
+    elsif body == "What is the weather like?" || body.include?("weather")
       message = "Dude look yourself. You have apps for this"
     elsif body == "Can you remind me to do that thing?" || body.include?("remind")
         message = "Why do you need me to do that? Just set a reminder on your phone"
     else
-       message = "See ya."
+       message = "...see ya."
     end
 
   end
