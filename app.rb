@@ -47,6 +47,10 @@ get "/sms/incoming" do
       message = "Dude look yourself. You have an app"
     elsif body == "Can you remind me to do that thing?" || body.include?("remind")
       message = "Why do you need me to do that? Just set a reminder on your phone"
+    elsif body.include?("Jack")
+      message = "Jack? That's a cool kid. That's all you need to know"
+    elsif body.include?("more")
+      message = "I've said too much already"
     else
       message = "(-______-) see ya."
     end
