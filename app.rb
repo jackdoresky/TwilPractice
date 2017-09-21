@@ -26,7 +26,7 @@ get "/sms/incoming" do
 
   elsif session["counter"]>=1
     if body == "What are you doing" || body.include?("ryd")
-        message = "I'm at the gym lol. Why?"
+        puts "I'm at the gym lol. Why?"
         sleep 2
         puts "Actually nvm. Idc lol"
 
