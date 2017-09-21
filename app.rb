@@ -25,10 +25,10 @@ get "/sms/incoming" do
     message = "What's up?"
 
   elsif session["counter"]>=1
-    if body == "What are you doing" || body.include?("ryd")
-        puts "I'm at the gym lol. Why?"
+    if body == "What are you doing" || body.include?("wryd")
+        message = "I'm at the gym lol. Why?"
         sleep 2
-        puts "Actually nvm. Idc lol"
+        message = "Actually nvm. Idc lol"
 
       @client.api.account.messages.create(
          from: ENV['TWILIO_FROM'],
@@ -44,11 +44,11 @@ get "/sms/incoming" do
     elsif body == "Can you help me?" || body.include?("help me")
       message = "No"
     elsif body == "What is the weather like?" || body.include?("weather")
-      message = "Dude look yourself. You have apps for this"
+      message = "Dude look yourself. You have an app"
     elsif body == "Can you remind me to do that thing?" || body.include?("remind")
       message = "Why do you need me to do that? Just set a reminder on your phone"
     else
-      message = "...see ya."
+      message = "(-______-) see ya."
     end
 
   end
