@@ -28,7 +28,7 @@ get "/sms/incoming" do
     if body == "What are you doing" || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
         sleep 2
-        message = "Actually nvm. Idc lol"
+        message1 = "Actually nvm. Idc lol"
 
       @client.api.account.messages.create(
          from: ENV['TWILIO_FROM'],
@@ -46,9 +46,9 @@ get "/sms/incoming" do
     elsif body == "What is the weather like?" || body.include?("weather")
       message = "Dude look yourself. You have apps for this"
     elsif body == "Can you remind me to do that thing?" || body.include?("remind")
-        message = "Why do you need me to do that? Just set a reminder on your phone"
+      message = "Why do you need me to do that? Just set a reminder on your phone"
     else
-       message = "...see ya."
+      message = "...see ya."
     end
 
   end
@@ -60,6 +60,8 @@ get "/sms/incoming" do
   twiml = Twilio::TwiML::MessagingResponse.new do |r|
     r.message do |m|
       m.body( message )
+    r.message1 do |m|
+      m.body( message1 )
       unless media.nil?
         m.media( media )
       end
