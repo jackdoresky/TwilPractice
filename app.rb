@@ -23,7 +23,7 @@ get "/sms/incoming" do
 
   if session["counter"] == 1
     message = "What's up?"
-    #media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
+
   elsif session["counter"]>=1
     if body == "What are you doing" || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
@@ -35,7 +35,10 @@ get "/sms/incoming" do
          to: params[:From],
          body: "I'm at the gym lol. Why?"
       )
-
+    elsif body == "What are you doing" || body.include?("ryd")
+        message = "I'm at the gym lol. Why?"
+        sleep (2)
+        message = "Actually nvm. Idc."
     elsif body == "Have you done the hw yet?" || body == "Did you do the hw" || body.include?("hw") || body.include?("homework")
       message = "Yeah a while ago."
     elsif body == "Can you help me" || body.include?("help me")
@@ -47,8 +50,8 @@ get "/sms/incoming" do
     end
 
   end
-  if session["counter"]==4
-    message = "JACK'S PHONE IS ON DO NOT DISTURB. TEXT SOMEONE ELSE."
+  if session["counter"]==10
+    message = "JACK'S PHONE IS ON DO NOT DISTURB NOW. TEXT SOMEONE ELSE."
     media = nil
   end
   session["counter"] += 1
