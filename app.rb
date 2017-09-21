@@ -23,7 +23,7 @@ get "/sms/incoming" do
 
   if session["counter"] == 1
     message = "What's up?"
-    media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
+    #media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
   elsif session["counter"]>=1
     if body == "What are you doing" || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
@@ -40,6 +40,8 @@ get "/sms/incoming" do
       message = "Yeah a while ago."
     elsif body == "Can you help me" || body.include?("help me")
       message = "No"
+    elsif body.include?("remind")
+        message = "Why do you need me to do that? Just set a reminder on your phone."
     else
        message = "Aight, bye."
     end
