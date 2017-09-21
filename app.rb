@@ -22,13 +22,13 @@ get "/sms/incoming" do
   @client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
 
   if session["counter"] == 1
-    message = "Thanks for your first message. From #{sender} saying #{body}"
+    message = "Thanks for your first message. Ask me something."
     media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
   elsif session["counter"]>1
-    if body == "What are you doing" || body == "wryd" || body == "Wryd"
+    if body == "What are you doing" || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
         sleep (2)
-        message = "Actually nvm. Idc lol"
+        message = "Actually nvm. Idc."
       @client.api.account.messages.create(
          from: ENV['TWILIO_FROM'],
          to: params[:From],
@@ -42,7 +42,7 @@ get "/sms/incoming" do
     else
        message = "Aight, bye."
     end
-  else
+  elsif session["counter"]==4
     message = "JACK'S PHONE IS ON DO NOT DISTURB. TEXT SOMEONE ELSE."
     media = nil
   end
