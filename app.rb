@@ -48,7 +48,7 @@ get "/sms/incoming" do
     elsif body.include?("remind")
         message = "Why do you need me to do that? Just set a reminder on your phone"
     else
-       message = "Aight, bye."
+       message = "Aight, see ya."
     end
 
   end
