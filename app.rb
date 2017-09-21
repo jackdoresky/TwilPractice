@@ -28,7 +28,7 @@ get "/sms/incoming" do
     if body == "What are you doing" || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
         sleep 2
-        message1 = "Actually nvm. Idc lol"
+        message = "Actually nvm. Idc lol"
 
       @client.api.account.messages.create(
          from: ENV['TWILIO_FROM'],
@@ -60,8 +60,6 @@ get "/sms/incoming" do
   twiml = Twilio::TwiML::MessagingResponse.new do |r|
     r.message do |m|
       m.body( message )
-    r.message1 do |m|
-      m.body( message1 )
       unless media.nil?
         m.media( media )
       end
