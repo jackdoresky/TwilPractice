@@ -26,7 +26,7 @@ get "/sms/incoming" do
     media = "https://media.giphy.com/media/13ZHjidRzoi7n2/giphy.gif"
   elsif session["counter"]>1
     if body == "What are you doing" || body == "wryd" || body == "Wryd"
-        message - "I'm at the gym lol. Why?"
+        message = "I'm at the gym lol. Why?"
         sleep (2)
         message = "Actually nvm. Idc lol"
       @client.api.account.messages.create(
