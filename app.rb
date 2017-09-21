@@ -33,7 +33,7 @@ get "/sms/incoming" do
          to: params[:From],
          body: "I'm at the gym lol. Why?"
       )
-    elsif body.include?("are you doing") || body.include?("wryd")
+    elsif body.include?("are you doing") 
         message = "I'm at the gym lol. Why?"
 
     elsif body.include?("hw") || body.include?("homework")
