@@ -27,8 +27,7 @@ get "/sms/incoming" do
   elsif session["counter"]>=1
     if body.include?("wryd")
         message = "I'm at the gym lol. Why?"
-        sleep 2
-        message = "Actually nvm. Idc lol"
+
 
       @client.api.account.messages.create(
          from: ENV['TWILIO_FROM'],
@@ -37,8 +36,7 @@ get "/sms/incoming" do
       )
     elsif body.include?("are you doing") || body.include?("ryd")
         message = "I'm at the gym lol. Why?"
-        sleep (2)
-        message = "Actually nvm. Idc."
+
     elsif body.include?("hw") || body.include?("homework")
       message = "Yeah a while ago."
     elsif body.include?("help me")
