@@ -51,8 +51,10 @@ get "/sms/incoming" do
       message = "jack? That's a cool kid. That's all you need to know"
     elsif body.include?("more")
       message = "I've said too much already"
+    elsif body.include?("please")
+      message = "https://media.giphy.com/media/26uf1obq3ifbbixVK/giphy.gif"
     else
-      message = "(-______-) see ya."
+      message = "We're done here."
     end
 
   end
